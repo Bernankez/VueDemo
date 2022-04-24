@@ -1,9 +1,9 @@
 <template>
-  <DemoSwitcher v-model="value" />
+  <Switcher v-model="value" />
 </template>
 
 <script setup lang="ts">
-import DemoSwitcher from "./DemoSwitcher.vue";
+import Switcher from "./Switcher.vue";
 import { ref } from "vue";
 
 const value = ref(false);

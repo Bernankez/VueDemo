@@ -44,20 +44,20 @@ const props = withDefaults(defineProps<Props>(), {
   switchColorOffDark: "#39393d",
   trueValue: true,
   falseValue: false,
-  disabled: false,
+  disabled: false
 });
 
 const emit = defineEmits<{
-  (event: "update:modelValue", value): void;
+  (event: "update:modelValue", value: Props["modelValue"]): void;
 }>();
 
 const value = computed({
   get() {
     return props.modelValue;
   },
-  set(val) {
+  set(val: Props["modelValue"]) {
     emit("update:modelValue", val);
-  },
+  }
 });
 </script>
 
