@@ -1,23 +1,27 @@
-import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 const routes: RouteRecordRaw[] = [
-    {
-        path: "/",
-        component: () => import("@/views/Home.vue"),
-    },
-    {
-        path: "/switcher",
-        component: () => import("@/views/switcher/index.vue"),
-    },
-    {
-        path: '/cyber-button',
-        component: () => import("@/views/cyber-button/index.vue")
-    }
+  {
+    path: "/",
+    component: () => import("@/views/Home.vue"),
+  },
+  {
+    path: "/switcher",
+    component: () => import("@/views/switcher/index.vue"),
+  },
+  {
+    path: "/cyber-button",
+    component: () => import("@/views/cyber-button/index.vue"),
+  },
+  {
+    path: "/keyboard",
+    component: () => import("@/views/keyboard/index.vue"),
+  },
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 });
 
 export default router;
