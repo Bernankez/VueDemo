@@ -1,5 +1,5 @@
 <template>
-  <div :class="name">
+  <div :class="[name, bem('', props.theme)]">
     <div :class="[bem('', 'roof'), props.className]">
       <slot></slot>
     </div>
@@ -18,6 +18,7 @@ interface Prop {
   offset?: string;
   activeOffset?: string;
   activeScale?: `${number},${number}`;
+  theme?: "dark" | "light";
 }
 
 const props = withDefaults(defineProps<Prop>(), {
@@ -26,6 +27,7 @@ const props = withDefaults(defineProps<Prop>(), {
   offset: "6px",
   activeOffset: "7px",
   activeScale: "0.98,0.98",
+  theme: "dark",
 });
 </script>
 
@@ -40,8 +42,6 @@ const props = withDefaults(defineProps<Prop>(), {
   position: relative;
   width: var(--keyboard-width);
   height: var(--keyboard-height);
-  background: linear-gradient(to bottom, #282828, #202020);
-  border: 1px solid #0009;
   border-radius: var(--keyboard-radius);
   user-select: none;
   -webkit-user-select: none;
@@ -57,8 +57,6 @@ const props = withDefaults(defineProps<Prop>(), {
 .demo-keyboard:active .demo-keyboard--roof {
   top: var(--keyboard-offset-active);
   left: var(--keyboard-offset-active);
-  background: linear-gradient(75deg, #191919, #414141);
-  box-shadow: -15px -15px 10px 7px rgba(255, 255, 255, 0.25), 10px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
 .demo-keyboard--roof {
@@ -67,8 +65,38 @@ const props = withDefaults(defineProps<Prop>(), {
   left: var(--keyboard-offset);
   height: calc(100% - var(--keyboard-offset) * 3);
   width: calc(100% - var(--keyboard-offset) * 3);
-  background: linear-gradient(to right, #232323, #4a4a4a);
-  box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.25), 10px 5px 10px rgba(0, 0, 0, 0.15);
   border-radius: var(--keyboard-radius);
+}
+
+.demo-keyboard--dark {
+  background: linear-gradient(to bottom, #282828, #202020);
+  border: 1px solid #0009;
+  color: white;
+
+  &:active .demo-keyboard--roof {
+    background: linear-gradient(75deg, #191919, #414141);
+    box-shadow: -15px -15px 10px 7px rgba(255, 255, 255, 0.25), 10px 5px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .demo-keyboard--roof {
+    background: linear-gradient(to right, #232323, #4a4a4a);
+    box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.25), 10px 5px 10px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.demo-keyboard--light {
+  background: linear-gradient(to bottom, #fff, #ddd);
+  border: 1px solid #eee;
+  color: #333;
+
+  &:active .demo-keyboard--roof {
+    background: linear-gradient(to right bottom, #ccc, #fff);
+    box-shadow: -15px -15px 10px 7px rgba(255, 255, 255, 0.25), 10px 5px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .demo-keyboard--roof {
+    background: linear-gradient(to right bottom, #ddd, #fff);
+    box-shadow: -10px -10px 10px rgba(255, 255, 255, 0.25), 10px 5px 10px rgba(0, 0, 0, 0.1);
+  }
 }
 </style>
