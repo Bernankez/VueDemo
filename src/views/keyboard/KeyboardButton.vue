@@ -1,5 +1,5 @@
 <template>
-  <Keyboard :className="name" :width="props.width" :height="props.height" :theme="props.theme">
+  <Keyboard :className="name" :width="props.width" :height="props.height" :theme="props.theme" @click="click">
     <slot>{{ props.title }}ffff</slot>
   </Keyboard>
 </template>
@@ -26,6 +26,10 @@ const props = withDefaults(defineProps<Prop>(), {
   height: "80px",
 });
 
+const emit = defineEmits<{
+  (event: "click", e: MouseEvent): void;
+}>();
+
 const computedStyle = computed(() => {
   const flex = { justifyContent: "center", alignItems: "center" };
   if (props.placement.includes("left")) {
@@ -40,6 +44,10 @@ const computedStyle = computed(() => {
   }
   return flex;
 });
+
+const click = e => {
+  emit("click", e);
+};
 </script>
 
 <style lang="scss" scoped>
