@@ -43,6 +43,7 @@ const props = withDefaults(defineProps<Prop>(), {
   width: var(--keyboard-width);
   height: var(--keyboard-height);
   border-radius: var(--keyboard-radius);
+  overflow: hidden;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
