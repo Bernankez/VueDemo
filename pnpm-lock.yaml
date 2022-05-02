@@ -9,7 +9,7 @@ specifiers:
   prettier: ^2.6.2
   sass: ^1.50.1
   typescript: ^4.5.4
-  vite: ^2.9.5
+  vite: ^2.9.7
   vue: ^3.2.33
   vue-router: ^4.0.14
   vue-tsc: ^0.34.7
@@ -23,11 +23,11 @@ devDependencies:
   '@types/node': 17.0.25
   '@vicons/antd': 0.12.0
   '@vicons/utils': 0.1.4_vue@3.2.33
-  '@vitejs/plugin-vue': 2.3.1_vite@2.9.5+vue@3.2.33
+  '@vitejs/plugin-vue': 2.3.1_vite@2.9.7+vue@3.2.33
   prettier: 2.6.2
   sass: 1.50.1
   typescript: 4.6.3
-  vite: 2.9.5_sass@1.50.1
+  vite: 2.9.7_sass@1.50.1
   vue-tsc: 0.34.9_typescript@4.6.3
 
 packages:
@@ -62,14 +62,14 @@ packages:
       vue: 3.2.33
     dev: true
 
-  /@vitejs/plugin-vue/2.3.1_vite@2.9.5+vue@3.2.33:
+  /@vitejs/plugin-vue/2.3.1_vite@2.9.7+vue@3.2.33:
     resolution: {integrity: sha512-YNzBt8+jt6bSwpt7LP890U1UcTOIZZxfpE5WOJ638PNxSEKOqAi0+FSKS0nVeukfdZ0Ai/H7AFd6k3hayfGZqQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       vite: ^2.5.10
       vue: ^3.2.25
     dependencies:
-      vite: 2.9.5_sass@1.50.1
+      vite: 2.9.7_sass@1.50.1
       vue: 3.2.33
     dev: true
 
@@ -571,6 +571,15 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.0.2
 
+  /postcss/8.4.13:
+    resolution: {integrity: sha512-jtL6eTBrza5MPzy8oJLFuUscHDXTV5KcLlqAWHl5q5WYRfnNRGSmOZmOZ1T6Gy7A99mOZfqungmZMpMmCVJ8ZA==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.3
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+    dev: true
+
   /prettier/2.6.2:
     resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==}
     engines: {node: '>=10.13.0'}
@@ -640,8 +649,8 @@ packages:
     hasBin: true
     dev: true
 
-  /vite/2.9.5_sass@1.50.1:
-    resolution: {integrity: sha512-dvMN64X2YEQgSXF1lYabKXw3BbN6e+BL67+P3Vy4MacnY+UzT1AfkHiioFSi9+uiDUiaDy7Ax/LQqivk6orilg==}
+  /vite/2.9.7_sass@1.50.1:
+    resolution: {integrity: sha512-5hH7aNQe8rJiTTqCtPNX/6mIKlGw+1wg8UXwAxDIIN8XaSR+Zx3GT2zSu7QKa1vIaBqfUODGh3vpwY8r0AW/jw==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
@@ -657,7 +666,7 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.14.38
-      postcss: 8.4.12
+      postcss: 8.4.13
       resolve: 1.22.0
       rollup: 2.70.2
       sass: 1.50.1
