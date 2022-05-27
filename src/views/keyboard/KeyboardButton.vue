@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import Keyboard from "./Keyboard.vue";
 import { createNamespace } from "@/utils";
-import { computed, defineProps } from "vue";
+import { computed } from "vue";
 
 const [name, bem] = createNamespace("keyboard-button");
 
