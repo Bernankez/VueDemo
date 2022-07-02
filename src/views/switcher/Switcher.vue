@@ -1,13 +1,8 @@
 <template>
   <div :class="name">
     <label>
-      <input
-        :class="{ [bem('checkbox')]: true, [bem('checkbox', 'enabled')]: !props.disabled }"
-        type="checkbox"
-        v-model="value"
-        :disabled="props.disabled"
-        :true-value="props.trueValue"
-        :false-value="props.falseValue" />
+      <input :class="{ [bem('checkbox')]: true, [bem('checkbox', 'enabled')]: !props.disabled }" type="checkbox"
+        v-model="value" :disabled="props.disabled" :true-value="props.trueValue" :false-value="props.falseValue" />
       <span :class="bem('', 'background')"></span>
     </label>
   </div>
@@ -51,9 +46,9 @@ const emit = defineEmits<{
   (event: "update:modelValue", value: Props["modelValue"]): void;
 }>();
 
-const value = computed({
+const value = computed<boolean | 'true' | 'false'>({
   get() {
-    return props.modelValue;
+    return props.modelValue as boolean | 'true' | 'false';
   },
   set(val: Props["modelValue"]) {
     emit("update:modelValue", val);
@@ -94,20 +89,20 @@ const value = computed({
 .demo-switcher__checkbox {
   display: none;
 
-  &:checked + span {
+  &:checked+span {
     background-color: v-bind("props.switchColorOn");
   }
 
-  &:checked + span::after {
+  &:checked+span::after {
     transform: translateX(calc(v-bind("props.width") - v-bind("props.toggleDiameter") - var(--button-toggle-offset)));
     box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
   }
 
-  &--enabled:active + span::after {
+  &--enabled:active+span::after {
     width: v-bind("props.toggleWider");
   }
 
-  &--enabled:checked:active + span::after {
+  &--enabled:checked:active+span::after {
     transform: translateX(calc(v-bind("props.width") - v-bind("props.toggleWider") - var(--button-toggle-offset)));
   }
 }
